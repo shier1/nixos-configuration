@@ -1,0 +1,10 @@
+[
+  ./alacritty.nix
+  ./bash.nix
+  ./git.nix
+  ./i3.nix
+  ./nemo.nix
+  ./nvf.nix
+  ./ranger.nix
+  ./starship.nix
+]
