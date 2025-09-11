@@ -8,10 +8,23 @@
       executable = true;
     };
   };
+
   programs.i3blocks = {
     enable = true;
     bars = {
       config = {
+        cpu_usage = {
+          interval = 10;
+          command = "~/.config/i3blocks/i3blocks-scripts/cpu-usage.pl";
+          LABEL = "CPU";
+          min_width = "CPU: 100.00%";
+          T_WARN = 50;
+          T_CRIT = 80;
+          DECIMALS = 2;
+          COLOR_NORMAL = "#EBDBB2";
+          COLOR_WARN = "#FFFC00";
+          COLOR_CRIT = "#FF0000";
+        };
         title = {
           interval = "persist";
           command = "${pkgs.xtitle}/bin/xtitle -s";
