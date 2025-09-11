@@ -40,9 +40,10 @@
 
     # i3 extra packages
     rofi
-    alsa-utils
-    jq
-    xtitle
+    alsa-utils  # for the audio
+    xtitle      # for the window title
+    lm_sensors  # for the temperature
+
     
     # GUI
     clash-verge-rev

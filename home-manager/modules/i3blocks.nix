@@ -15,15 +15,29 @@
       config = {
         cpu_usage = {
           interval = 10;
-          command = "~/.config/i3blocks/i3blocks-scripts/cpu-usage.pl";
+          command = "~/.config/i3blocks/i3blocks-scripts/cpu-usage";
           LABEL = "CPU";
-          min_width = "CPU: 100.00%";
           T_WARN = 50;
           T_CRIT = 80;
           DECIMALS = 2;
           COLOR_NORMAL = "#EBDBB2";
           COLOR_WARN = "#FFFC00";
           COLOR_CRIT = "#FF0000";
+        };
+        temperature = {
+          command = "~/.config/i3blocks/i3blocks-scripts/temperature";
+          label = TEMP;
+          interval = 10;
+          T_WARN = 70;
+          T_CRIT = 90;
+          SENSOR_CHIP = "";
+        };
+        backlight = {
+          command = "~/.config/i3blocks/i3blocks-scripts/xbacklight";
+          label = "*";
+          interva = 20;
+          STEP_SIZE = 5;
+          USE_SUDO = 0;
         };
         title = {
           interval = "persist";
