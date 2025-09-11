@@ -7,4 +7,5 @@
   ./nvf.nix
   ./ranger.nix
   ./starship.nix
+  ./i3blocks.nix
 ]

@@ -12,6 +12,8 @@
     ./boot.nix
     ./hardware.nix
     ./service.nix
+    ./user.nix
+    ./i18n.nix
   ];
   
   # overlays settings

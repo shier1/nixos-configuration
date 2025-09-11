@@ -17,7 +17,7 @@
       users = [ "shier" ];
       commands = [
         {
-	  command = "ALL" ;
+	        command = "ALL" ;
           options= [ "NOPASSWD" ];
         }
       ];
