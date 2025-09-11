@@ -26,25 +26,11 @@
         };
         temperature = {
           command = "~/.config/i3blocks/i3blocks-scripts/temperature";
-          label = TEMP;
+          label = "TEMP";
           interval = 10;
           T_WARN = 70;
           T_CRIT = 90;
           SENSOR_CHIP = "";
-        };
-        backlight = {
-          command = "~/.config/i3blocks/i3blocks-scripts/xbacklight";
-          label = "*";
-          interva = 20;
-          STEP_SIZE = 5;
-          USE_SUDO = 0;
-        };
-        title = {
-          interval = "persist";
-          command = "${pkgs.xtitle}/bin/xtitle -s";
-          format = " {title}";
-          color = "#F8F8F2";
-          max_width = 200;
         };
         time = {
           command = "date '+%H:%M'";
@@ -59,10 +45,24 @@
           format = " {date}";
           color = "#F8F8F2";
         };
-        systray = lib.hm.dag.entryAfter [ "date" ] {
-          command = "echo ''";
+        backlight = {
+          command = "~/.config/i3blocks/i3blocks-scripts/xbacklight";
+          label = "*";
+          interval = 20;
+          STEP_SIZE = 5;
+          USE_SUDO = 1;
+        };
+        ipv4 = {
+          command = "~/.config/i3blocks/i3blocks-scripts/ip";
+          interval = 10;
+          color = "#FFFFFF";
+        };
+        title = {
           interval = "persist";
-          color = "#FF79C6";
+          command = "${pkgs.xtitle}/bin/xtitle -s";
+          format = " {title}";
+          color = "#F8F8F2";
+          max_width = 200;
         };
       };
     };
