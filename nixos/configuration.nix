@@ -42,7 +42,7 @@
 
   # hostname settings
   networking.hostName = "nixos";
-  networking.proxy.default = "socks://127.0.0.1:7894";
+  networking.proxy.default = "socks://127.0.0.1:7897";
   networking.networkmanager.enable = true;
 
   # tomezone

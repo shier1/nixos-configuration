@@ -43,6 +43,7 @@ in
         name = "devicons2";
         src = builtins.fetchGit {
           url = "https://github.com/cdump/ranger-devicons2.git";
+          ref = "master";
           rev = "94bdcc19218681debb252475fd9d11cfd274d9b1";
         };
       }
@@ -58,15 +59,48 @@ in
     extraConfig = "default_linemode devicons2";
     # mapping .../ranger/rc.conf
     mappings = {
-      X = "quitall_cd_wd ...";
+      X = "quitall_cd_wd";
     };
   };
 
+  home.file.".config/ranger/plugins/quit_cd_wd.py" = {
+    text = ''
+      import os
+      from ranger.api.commands import Command
+
+      class quitall_cd_wd(Command):
+          """:chdir to working directory of ranger after quitalling on ranger.
+
+          """
+          def _exit_no_work(self):
+              if self.fm.loader.has_work():
+                  self.fm.notify('Not quitting: Tasks in progress: Use `quitall!` to force quit')
+              else:
+                  self.fm.exit()
+
+          def execute(self):
+              self.save_wd()
+              self._exit_no_work()
+
+          def save_wd(self):
+              if len(self.args) > 1:
+                  wd_file_path=os.path.expanduser(self.arg(1))
+              else:
+                  wd_file_path=os.path.expanduser('~/.cache/ranger/quit_cd_wd')
+              wd_dir_path = os.path.dirname(wd_file_path)
+              if not os.path.exists(wd_dir_path):
+                  os.makedirs(wd_dir_path)
+              with open(wd_file_path, 'w') as f:
+                  f.write(self.fm.thisdir.path);
+    '';
+    executable = true;
+  };
+  
   # ranger quitall_cd_wd shell scripts
   programs.bash.bashrcExtra = ''
     function ranger {
       local quit_cd_wd_file="$HOME/.cache/ranger/quit_cd_wd"        # The path must be the same as <file_saved_wd> in map.
-      #command ranger "$@"              # If you have already added the map to rc.conf
+      # command ranger "$@"              # If you have already added the map to rc.conf
       # OR add `map X quitall_cd_wd ...` if you don't want to add the map in rc.conf
       command ranger --cmd="map X quitall_cd_wd $quit_cd_wd_file" "$@"
       if [ -s "$quit_cd_wd_file" ]; then

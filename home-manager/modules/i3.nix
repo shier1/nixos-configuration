@@ -29,7 +29,6 @@
       };
       assigns = {
         "10" = [{ class = "^Clash-verge$"; }];
-        "1" = [{ class = "^Alacritty$"; }];
         "2" = [{ class = "^Microsoft-edge$"; }];
         "3" = [{ class = "^Code$"; }];
       };
