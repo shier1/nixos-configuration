@@ -22,20 +22,16 @@
       window = {
         commands = [
           {
-            criteria = {floating=true;}; # for all floating window
-            command = "floating enable, resize set 800 px 600 px, move position center";
-          }
-          {
             criteria = { class = "^Code$"; title = "^Open Folder$"; }; # for vscode open folder
-            command = "floating enable, resize set 800 600, move position center";
+            command = "floating enable, resize set 1000 800, move position center";
           }
         ];
       };
       assigns = {
+        "10" = [{ class = "^Clash-verge$"; }];
         "1" = [{ class = "^Alacritty$"; }];
         "2" = [{ class = "^Microsoft-edge$"; }];
         "3" = [{ class = "^Code$"; }];
-        "10" = [{ class = "^Clash-verge$"; }];
       };
       bars = [
         {
@@ -51,12 +47,7 @@
       };
     };
     extraConfig = ''
-      bindsym $mod+Tab workspace back_and_forth
+      bindsym Mod4+Tab workspace back_and_forth
     '';
-
-    programs.i3blocks = {
-      enable = true;
-      # bars
-    };
   };
 }

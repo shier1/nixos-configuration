@@ -40,7 +40,9 @@
 
     # i3 extra packages
     rofi
-    i3blocks
+    alsa-utils
+    jq
+    xtitle
     
     # GUI
     clash-verge-rev
