@@ -18,6 +18,12 @@
             "${modifier}+Shift+e" = "restart";
             "${modifier}+r" = "mod restart";
             "${modifier}+p" = "exec --no-startup-id rofi -show run";
+            "${modifier}+h" = "resize shrink width 10 px or 10 ppt";
+            "${modifier}+l" = "resize grow width 10 px or 10 ppt";
+            "${modifier}+j" = "resize grow height 10 px or 10 ppt";
+            "${modifier}+k" = "resize shrink height 10 px or 10 ppt";
+            "${modifier}+Shift+v" = "split v";
+            "${modifier}+Shift+h" = "split h";
           };
       window = {
         commands = [
@@ -30,8 +36,8 @@
             command = "floating enable, resize set 1000 800, move position center";
           }
         ];
-        hideEdgeBorders = "both";
-        border = 0;
+        hideEdgeBorders = "horizontal";
+        border = 1;
       };
       assigns = {
         "10" = [{ class = "^Clash-verge$"; }];
@@ -41,6 +47,9 @@
       
       bars = [
         {
+          colors = {
+            background = "#202020";
+          };
           position = "top";
           statusCommand = "${pkgs.i3blocks}/bin/i3blocks";
         }
@@ -56,7 +65,7 @@
     };
     extraConfig = ''
       bindsym Mod4+Tab workspace back_and_forth
-      default_border pixel 0
+      default_border pixel 1
     '';
   };
 }
