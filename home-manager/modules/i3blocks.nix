@@ -16,7 +16,7 @@
         cpu_usage = {
           interval = 10;
           command = "~/.config/i3blocks/i3blocks-scripts/cpu-usage";
-          LABEL = "CPU";
+          LABEL = " ";
           T_WARN = 50;
           T_CRIT = 80;
           DECIMALS = 2;
@@ -26,7 +26,7 @@
         };
         temperature = {
           command = "~/.config/i3blocks/i3blocks-scripts/temperature";
-          label = "TEMP";
+          label = " ";
           interval = 10;
           T_WARN = 70;
           T_CRIT = 90;
@@ -35,19 +35,19 @@
         time = {
           command = "date '+%H:%M'";
           interval = 60;
-          format = " {time}";
+          label = "󱑁 ";
           color = "#FFFFFF";
           background = "#6272A4";
         };
         date = lib.hm.dag.entryAfter [ "time" ] {
           command = "date '+%Y-%m-%d'";
           interval = 300;
-          format = " {date}";
+          label = " ";
           color = "#F8F8F2";
         };
         backlight = {
           command = "~/.config/i3blocks/i3blocks-scripts/xbacklight";
-          label = "*";
+          label = "󱩔 ";
           interval = 20;
           STEP_SIZE = 5;
           USE_SUDO = 1;
@@ -55,12 +55,13 @@
         ipv4 = {
           command = "~/.config/i3blocks/i3blocks-scripts/ip";
           interval = 10;
+          label = "󰩟 ";
           color = "#FFFFFF";
         };
         title = {
           interval = "persist";
           command = "${pkgs.xtitle}/bin/xtitle -s";
-          format = " {title}";
+          label = " ";
           color = "#F8F8F2";
           max_width = 200;
         };

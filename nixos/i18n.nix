@@ -1,6 +1,9 @@
 {config, pkgs, ...}:
 
 {
+  # tomezone
+  time.timeZone = "Asia/Shanghai";
+  
   # setting inputs
   i18n = {
     defaultLocale = "en_US.UTF-8";

@@ -59,7 +59,7 @@ in
     extraConfig = "default_linemode devicons2";
     # mapping .../ranger/rc.conf
     mappings = {
-      X = "quitall_cd_wd";
+      q = "quitall_cd_wd";
     };
   };
 

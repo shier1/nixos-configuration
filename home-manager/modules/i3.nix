@@ -25,6 +25,10 @@
             criteria = { class = "^Code$"; title = "^Open Folder$"; }; # for vscode open folder
             command = "floating enable, resize set 1000 800, move position center";
           }
+          {
+            criteria = { class = "^Microsoft-edge$"; title = "^Save file$"; }; # microsoft edge open folder
+            command = "floating enable, resize set 1000 800, move position center";
+          }
         ];
       };
       assigns = {

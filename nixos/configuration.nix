@@ -45,13 +45,11 @@
   networking.proxy.default = "socks://127.0.0.1:7897";
   networking.networkmanager.enable = true;
 
-  # tomezone
-  time.timeZone = "Asia/Shanghai";
-
   # fonts settings
   fonts.packages = with pkgs;[
      nerd-fonts.jetbrains-mono
   ];
+  environment.sessionVariables.QT_AUTO_SCREEN_SCALE_FACTOR = "1";
 
   #docker
   virtualisation.docker.enable = true;
