@@ -43,6 +43,7 @@
     alsa-utils  # for the audio
     xtitle      # for the window title
     lm_sensors  # for the temperature
+    direnv
 
     
     # GUI
@@ -53,5 +54,6 @@
     qq
     spotify
     nemo-with-extensions      # file manager gui
+    
   ];
 }

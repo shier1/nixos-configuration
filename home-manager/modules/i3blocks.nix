@@ -13,7 +13,21 @@
     enable = true;
     bars = {
       config = {
-        cpu_usage = {
+        title = {
+          interval = "persist";
+          command = "${pkgs.xtitle}/bin/xtitle -s";
+          label = " ";
+          color = "#F8F8F2";
+          max_width = 200;
+        };
+        backlight = lib.hm.dag.entryAfter[ "title" ]{
+          command = "~/.config/i3blocks/i3blocks-scripts/xbacklight";
+          label = "󱩔 ";
+          interval = 20;
+          STEP_SIZE = 5;
+          USE_SUDO = 1;
+        };
+        cpu_usage = lib.hm.dag.entryAfter[ "backlight" ] {
           interval = 10;
           command = "~/.config/i3blocks/i3blocks-scripts/cpu-usage";
           LABEL = " ";
@@ -24,15 +38,7 @@
           COLOR_WARN = "#FFFC00";
           COLOR_CRIT = "#FF0000";
         };
-        temperature = {
-          command = "~/.config/i3blocks/i3blocks-scripts/temperature";
-          label = " ";
-          interval = 10;
-          T_WARN = 70;
-          T_CRIT = 90;
-          SENSOR_CHIP = "";
-        };
-        time = {
+        time = lib.hm.dag.entryAfter[ "cpu_usage" ] {
           command = "date '+%H:%M'";
           interval = 60;
           label = "󱑁 ";
@@ -45,25 +51,19 @@
           label = " ";
           color = "#F8F8F2";
         };
-        backlight = {
-          command = "~/.config/i3blocks/i3blocks-scripts/xbacklight";
-          label = "󱩔 ";
-          interval = 20;
-          STEP_SIZE = 5;
-          USE_SUDO = 1;
+        temperature = lib.hm.dag.entryAfter [ "date" ]{
+          command = "~/.config/i3blocks/i3blocks-scripts/temperature";
+          label = " ";
+          interval = 10;
+          T_WARN = 70;
+          T_CRIT = 90;
+          SENSOR_CHIP = "";
         };
-        ipv4 = {
+        ipv4 = lib.hm.dag.entryAfter [ "temperature" ]{
           command = "~/.config/i3blocks/i3blocks-scripts/ip";
           interval = 10;
           label = "󰩟 ";
           color = "#FFFFFF";
-        };
-        title = {
-          interval = "persist";
-          command = "${pkgs.xtitle}/bin/xtitle -s";
-          label = " ";
-          color = "#F8F8F2";
-          max_width = 200;
         };
       };
     };
