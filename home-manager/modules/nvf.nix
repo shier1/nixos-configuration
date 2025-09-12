@@ -15,6 +15,14 @@
         autocomplete.blink-cmp.enable = true;
         autopairs.nvim-autopairs.enable = true;
         git.gitsigns.enable = true;
+        visuals.indent-blankline.enable = true;
+        utility.motion.leap = {
+          enable = true;
+          mappings = {
+            leapForwardTo = "<leader>s";
+            leapBackwardTo = "<leader>S";
+          };
+        };
 
         filetree.neo-tree = {
           enable = true;

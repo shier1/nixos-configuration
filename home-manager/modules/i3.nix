@@ -41,8 +41,7 @@
       };
       assigns = {
         "10" = [{ class = "^Clash-verge$"; }];
-        "2" = [{ class = "^Microsoft-edge$"; }];
-        "3" = [{ class = "^Code$"; }];
+        "3" = [{ class = "^Microsoft-edge$"; }];
       };
       
       bars = [
