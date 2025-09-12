@@ -13,7 +13,6 @@
         statusline.lualine.enable = true;
         telescope.enable = true;
         autocomplete.blink-cmp.enable = true;
-        utility.preview.markdownPreview.enable = true;
         autopairs.nvim-autopairs.enable = true;
         git.gitsigns.enable = true;
 
@@ -87,11 +86,36 @@
             silent = true;
             action = ":Neotree toggle<CR>";
           }
+          {
+            key = "<leader>m";
+            mode = "n";
+            silent = true;
+            action = ":Glow<CR>";
+          }
+          {
+            key = "m";
+            mode = "n";
+            silent = true;
+            action = ":Glow!<CR>";
+          }
         ];
         options = {
           shiftwidth = 4;
           tabstop = 4;
           expandtab = true;
+          autoindent = true;
+          smartindent = true;
+        };
+        extraPlugins = with pkgs.vimPlugins;{
+          glow = {
+            package = glow-nvim;
+            setup = ''
+              require('glow').setup({
+                style = "dark",
+                width = 120,
+              })
+            '';
+          };
         };
       };
     };
