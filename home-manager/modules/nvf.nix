@@ -9,13 +9,36 @@
           name = "gruvbox";
           style = "dark";
         };
-
+        lineNumberMode = "number";
         statusline.lualine.enable = true;
         telescope.enable = true;
         autocomplete.blink-cmp.enable = true;
-
-        filetree.neo-tree.enable = true;
         utility.preview.markdownPreview.enable = true;
+        autopairs.nvim-autopairs.enable = true;
+        git.gitsigns.enable = true;
+
+        filetree.neo-tree = {
+          enable = true;
+          setupOpts.enable_cursor_hijack = true;
+        };
+
+        binds.whichKey = {
+          enable = true;
+        };
+
+        clipboard = {
+          enable = true;
+          providers.xclip.enable = true;
+        };
+
+        tabline.nvimBufferline = {
+          enable = true;
+          mappings = {
+            closeCurrent = "<leader>q";
+            cycleNext = "<leader>l";
+            cyclePrevious = "<leader>h";
+          };
+        };
 
         languages = {
           nix = {
@@ -43,6 +66,32 @@
             lsp.enable = true;
             treesitter.enable = true;
           };
+        };
+
+        keymaps = [
+          {
+            key = "<C-h>";
+            mode = "n";
+            silent = true;
+            action = "<C-w>h";
+          }
+          {
+            key = "<C-l>";
+            mode = "n";
+            silent = true;
+            action = "<C-w>l";
+          }
+          {
+            key = "<leader>e";
+            mode = "n";
+            silent = true;
+            action = ":Neotree toggle<CR>";
+          }
+        ];
+        options = {
+          shiftwidth = 4;
+          tabstop = 4;
+          expandtab = true;
         };
       };
     };
